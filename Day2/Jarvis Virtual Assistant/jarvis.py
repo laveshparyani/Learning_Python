@@ -7,6 +7,7 @@ import wikipedia #pip install wikipedia
 import webbrowser
 import os
 import smtplib
+import distutils #pip install setuptools
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -81,33 +82,32 @@ if __name__ == "__main__":
         elif 'open google' in query:
             webbrowser.open("google.com")
 
-        elif 'open stackoverflow' in query:
+        elif 'open stack overflow' in query:
             webbrowser.open("stackoverflow.com")   
 
 
         elif 'play music' in query:
-            music_dir = 'D:\\Non Critical\\songs\\Favorite Songs2'
-            songs = os.listdir(music_dir)
-            print(songs)    
-            os.startfile(os.path.join(music_dir, songs[0]))
+            music_file = "C:\\Users\\anony\\Music\\Hanuman Chalisa.m4a"
+            os.startfile(music_file)
+
 
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")    
             speak(f"Sir, the time is {strTime}")
 
         elif 'open code' in query:
-            codePath = "C:\\Users\\Haris\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+            codePath = "C:\\Users\\anony\\OneDrive\\Desktop\\Python\\Day2\\Jarvis Virtual Assistant\\jarvis.py"
             os.startfile(codePath)
 
-        elif 'email to harry' in query:
+        elif 'email to Lavesh' in query:
             try:
                 speak("What should I say?")
                 content = takeCommand()
-                to = "harryyourEmail@gmail.com"    
+                to = "anonymous19082003@gmail.com"    
                 sendEmail(to, content)
                 speak("Email has been sent!")
             except Exception as e:
                 print(e)
-                speak("Sorry my friend harry bhai. I am not able to send this email")    
+                speak("Sorry my friend Lavesh. I am not able to send this email")    
         else:
             print("No query matched")
